@@ -14,7 +14,20 @@ export class LoginPage implements OnInit {
 
   username: string;
   password: string;
+  cadastrado; //variável que verifica se funcionário existe no banco
 
+   loginFuncionario = {
+    funcionario1: "master",
+    funcionario2: "desenvolvedor",
+    funcionario3: "funcionario1",
+    funcionario4: "funcionario2"
+  };
+  senhaFuncionario = {
+    senhafunc1: "master",
+    senhafunc2: "desenvolvedor",
+    senhafunc3: "funcionario1",
+    senhafunc4: "funcionario2"
+  };
   constructor(private router: Router, private postPvdr: PostProvider, 
     public toastCtrl: ToastController) {
    }
@@ -23,20 +36,60 @@ export class LoginPage implements OnInit {
   }
 
 
-  async login(){
+  async checkLogin(){
+    this.cadastrado = false;
     if(this.username != undefined && this.password != undefined){
-      const toast = await this.toastCtrl.create({
-        message: 'Campos preenchidos',
-        duration: 2000
-      });
-      toast.present();
+      this.checkUsername(); //checa se os dados digitados são iguais ao do objeto 
+      this.checkPassword();
+      this.login();
     }else{
       const toast = await this.toastCtrl.create({
-        message: 'Usuário ou senha estão vazios',
-        duration: 2000
+      message: 'Usuário ou senha estão vazios',
+      duration: 2000
       });
       toast.present();
     }
-    }//close async prosesLogin()
+  }
+    async login(){
+      if(this.cadastrado){
+        this.router.navigate(['/home']); 
+        const toast = await this.toastCtrl.create({
+          message: 'Login com sucesso!',
+          duration: 2000
+        });
+        toast.present();
+      }else{
+        const toast = await this.toastCtrl.create({
+          message: 'Dados incorretos',
+          duration: 2000
+        });
+        toast.present();
+      }
+    }
+
+    async checkUsername(){
+      for (var key in this.loginFuncionario) {
+        if(this.username == this.loginFuncionario[key]){
+          this.cadastrado = true;
+          break;
+        }else{
+          console.log(this.loginFuncionario[key]);
+          this.cadastrado = false;
+        }
+      }
+    }
+
+    async checkPassword(){
+      for (var key in this.senhaFuncionario) {
+        if(this.password == this.senhaFuncionario[key]){
+          this.cadastrado = true;
+          break;
+        }else{
+          console.log(this.senhaFuncionario[key]);
+          this.cadastrado = false;
+        }
+      }
+    }
+
   }//close class
 
