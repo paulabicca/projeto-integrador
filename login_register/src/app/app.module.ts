@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpModule } from '@angular/http';
-import { IonicStorageModule } from '@ionic/storage';
+
 import { PostProvider } from '../providers/post-provider';
 
 
@@ -21,8 +21,7 @@ import { PostProvider } from '../providers/post-provider';
     BrowserModule, 
     HttpModule,
     IonicModule.forRoot(), 
-    AppRoutingModule,
-    IonicStorageModule.forRoot()
+    AppRoutingModule
   ],
   providers: [
     StatusBar,
