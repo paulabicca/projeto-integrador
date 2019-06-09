@@ -1,12 +1,23 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-        Ola usuario
+        Sua beleza
     </ion-title>
     <ion-buttons slot="primary">
         <ion-button color="light" (click)="logout()"><ion-icon slot="end" name="log-out"></ion-icon></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<p class="user">Olá Usuario</p>  
 <ion-content>
-  </ion-content>
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      <ion-label text-wrap>
+        <h2>{{user.name}}</h2>
+      </ion-label>
+      <ion-label text-wrap>
+        <p>{{user.username}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

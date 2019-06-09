@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage implements OnInit {
 
-  username: string;
+  usernameLogin: string;
   password: string;
   cadastrado; //variável que verifica se funcionário existe no banco
 
@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
 
   async checkLogin(){
     this.cadastrado = false;
-    if(this.username != undefined && this.password != undefined){
+    if(this.usernameLogin != undefined && this.password != undefined){
       this.checkUsername(); //checa se os dados digitados são iguais ao do objeto 
       this.checkPassword();
       this.login();
@@ -69,7 +69,7 @@ export class LoginPage implements OnInit {
 
     async checkUsername(){
       for (var key in this.loginFuncionario) {
-        if(this.username == this.loginFuncionario[key]){
+        if(this.usernameLogin == this.loginFuncionario[key]){
           this.cadastrado = true;
           break;
         }else{
