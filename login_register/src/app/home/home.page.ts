@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { PostProvider } from '../../providers/post-provider';
 import { Observable } from 'rxjs';
-import { LoginPage } from './../login/login.page';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +12,11 @@ import { LoginPage } from './../login/login.page';
 })
 export class HomePage implements OnInit {
   users: any;
-  loginUser: any;
+
 
   constructor(private router: Router,private alertCtrl: AlertController, 
-    public post: PostProvider, public username: LoginPage) {
-      this.getUsers();
-      this.getNameUser();
+    public post: PostProvider) {
+      this.getUsers(); 
     }
   ngOnInit() { 
   }
@@ -32,9 +30,7 @@ export class HomePage implements OnInit {
       console.log(this.users);
     })
   }
-  getNameUser(){
 
-  }
  
  
 
