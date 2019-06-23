@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostProvider } from '../../providers/post-provider';
-import { ToastController } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
-
+import { ToastController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -19,17 +17,21 @@ export class LoginPage implements OnInit {
    loginFuncionario = {
     funcionario1: "master",
     funcionario2: "desenvolvedor",
-    funcionario3: "funcionario1",
-    funcionario4: "funcionario2"
+    funcionario3: "paula",
+    funcionario4: "vanessa",
+    funcionario5: "rafael",
+    funcionario6: "funcionario",
   };
   senhaFuncionario = {
     senhafunc1: "master",
     senhafunc2: "desenvolvedor",
-    senhafunc3: "funcionario1",
-    senhafunc4: "funcionario2"
+    senhafunc3: "paula",
+    senhafunc4: "vanessa",
+    senhafunc5: "rafael",
+    senhafunc6: "funcionario",
   };
   constructor(private router: Router, private postPvdr: PostProvider, 
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController, private nav: NavController) {
    }
 
   ngOnInit() {
@@ -70,10 +72,10 @@ export class LoginPage implements OnInit {
     async checkUsername(){
       for (var key in this.loginFuncionario) {
         if(this.usernameLogin == this.loginFuncionario[key]){
+          //console.log(this.loginFuncionario[key]);
           this.cadastrado = true;
           break;
         }else{
-          console.log(this.loginFuncionario[key]);
           this.cadastrado = false;
         }
       }
@@ -85,7 +87,6 @@ export class LoginPage implements OnInit {
           this.cadastrado = true;
           break;
         }else{
-          console.log(this.senhaFuncionario[key]);
           this.cadastrado = false;
         }
       }
