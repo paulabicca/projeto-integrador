@@ -115,7 +115,7 @@ export class HomePage implements OnInit {
     this.event.startTime = selected.toISOString();
     selected.setHours(selected.getHours() + 1);
     this.event.endTime = (selected.toISOString());
-    console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
-    (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);
+    /*console.log('Selected time: ' + ev.selectedTime + ', hasEvents: ' +
+    (ev.events !== undefined && ev.events.length !== 0) + ', disabled: ' + ev.disabled);*/
   }  
 }
