@@ -8,16 +8,14 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<p class="user">Bem vindo(a) Usuário!</p>  
-
+<p class="user">Bem vindo(a), {{userlogin}}!</p>   
 <ion-content>
   <!-- Adiciona um novo evento -->
   <ion-card>
-    <ion-card-header tappable (click)="collapseCard = !collapseCard">
+    <ion-card-header tappable >
       <ion-card-title>Novo Serviço</ion-card-title>
     </ion-card-header>
-    <ion-card-content *ngIf="!collapseCard">
-
+    <ion-card-content>
       <ion-item>
         <ion-input type="text" placeholder="Titulo" [(ngModel)]="event.title"></ion-input>
       </ion-item>
@@ -60,7 +58,7 @@
       <ion-button expand="block" [color]="calendar.mode == 'day' ? 'medium' : 'primary'" (click)="changeMode('day')">Dia</ion-button>
     </ion-col>
   </ion-row>
-  <p>Estamos no mês: {{viewTitle}}</p>
+  <p class="month">{{viewTitle}}</p>
   <calendar 
   [eventSource]="eventSource" 
   [calendarMode]="calendar.mode" 

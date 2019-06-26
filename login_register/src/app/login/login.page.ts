@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home.page';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostProvider } from '../../providers/post-provider';
@@ -54,7 +55,8 @@ export class LoginPage implements OnInit {
   }
     async login(){
       if(this.cadastrado){
-        this.router.navigate(['/home']); 
+        this.router.navigate(['/home',{user: this.usernameLogin}]);
+    
         const toast = await this.toastCtrl.create({
           message: 'Login com sucesso!',
           duration: 2000

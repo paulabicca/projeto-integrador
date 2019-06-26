@@ -1,4 +1,6 @@
-.user{
-    text-align: center;
-    font-size: 3vw; 
-}
+.user, .month{ text-align: center;}
+.user { font-size: 19px; }
+.month{
+  font-size: 23px;
+  text-transform: capitalize;
+  }
